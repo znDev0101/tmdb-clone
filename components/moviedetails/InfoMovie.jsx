@@ -32,11 +32,13 @@ const InfoMovie = async ({ detailDataMovie }) => {
                   detailDataMovie?.first_air_date}
                 .
               </h6>
-              {detailDataMovie.genres.map((data) => {
+              {detailDataMovie.genres.map((data, i) => {
                 return (
-                  <h6 key={data.id} className="text-white ms-2">
-                    {data.name}
-                  </h6>
+                  <div key={i}>
+                    <h6 key={data.id} className="text-white ms-2">
+                      {data.name}
+                    </h6>
+                  </div>
                 )
               })}
             </div>
