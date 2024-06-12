@@ -57,9 +57,9 @@ const InfoMovie = async ({ detailDataMovie }) => {
               </p>
             </div>
             <div className="flex items-center gap-x-28 mt-5">
-              {detailDataMovie?.created_by?.map(({ name }) => {
+              {detailDataMovie?.created_by?.map(({ name }, i) => {
                 return (
-                  <div className="">
+                  <div className="" key={i}>
                     <h5 className="font-bold text-white">{name}</h5>
                     <span className="text-white">Creator</span>
                   </div>
