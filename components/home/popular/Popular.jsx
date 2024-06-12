@@ -65,12 +65,8 @@ const Popular = () => {
       <div
         className="flex  overflow-x-auto gap-x-3 px-10"
         ref={cardContainerRef}>
-        {dataAllGenrePopular.map((data) => {
-          return (
-            <Suspense fallback={<SkeletonCardMovies />}>
-              <CardMovies data={data} />
-            </Suspense>
-          )
+        {dataAllGenrePopular.map((data, i) => {
+          return <CardMovies data={data} key={i} />
         })}
       </div>
     </div>

@@ -64,8 +64,8 @@ const Trending = () => {
       <div
         className="flex  overflow-x-auto gap-x-3 px-10"
         ref={cardContainerRef}>
-        {dataMoviesTrending.map((data) => {
-          return <CardMovies data={data} />
+        {dataMoviesTrending.map((data, i) => {
+          return <CardMovies data={data} key={i} />
         })}
       </div>
     </div>

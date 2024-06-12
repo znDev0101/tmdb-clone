@@ -54,15 +54,13 @@ const LatestTrailers = () => {
           className="flex gap-x-3 border border-gray-700 rounded-2xl"></div>
       </div>
       <div className="flex px-4 lg:px-10 gap-x-4 overflow-x-auto mt-7 ">
-        {dataLatestMovies?.results?.map((data) => {
+        {dataLatestMovies?.results?.map((data, i) => {
           return (
-            <Link href={`/`}>
-              <CardTrailers
-                key={data?.id}
-                data={data}
-                imageMovies={data?.backdrop_path}
-              />
-            </Link>
+            <CardTrailers
+              key={i}
+              data={data}
+              imageMovies={data?.backdrop_path}
+            />
           )
         })}
       </div>
