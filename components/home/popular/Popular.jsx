@@ -38,7 +38,7 @@ const Popular = () => {
 
   return (
     <div className="flex flex-col gap-y-5">
-      <div className="flex gap-x-5 items-center px-10">
+      <div className="flex gap-x-5 items-center px-5 lg:px-10">
         <h1 className="font-semibold text-2xl">Popular</h1>
         <div className="flex border-2 border-blue-900 rounded-full overflow-hidden">
           <div
@@ -63,10 +63,12 @@ const Popular = () => {
       </div>
       {/* CARD CONTAINER */}
       <div
-        className="flex  overflow-x-auto gap-x-3 px-10"
+        className="flex  overflow-x-auto gap-x-3 px-5 lg:px-10"
         ref={cardContainerRef}>
         {dataAllGenrePopular.map((data, i) => {
-          return <CardMovies data={data} key={i} />
+          return (
+            <CardMovies data={data} key={i} selectPopular={selectPopular} />
+          )
         })}
       </div>
     </div>

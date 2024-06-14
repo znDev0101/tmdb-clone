@@ -1,7 +1,11 @@
 import React from "react"
 
 const LoadingInfoMovies = () => {
-  return <div>Loading....</div>
+  return (
+    <div>
+      <h5>Loading.....</h5>
+    </div>
+  )
 }
 
 export default LoadingInfoMovies

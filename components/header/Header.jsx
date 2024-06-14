@@ -36,7 +36,7 @@ const Header = () => {
     <header
       className={`fixed ${
         showNavbar ? `top-0` : `-top-24`
-      } w-full flex items-center justify-between  py-3 lg:py-5 px-5 lg:px-10 bg-primary z-50 duration-300`}>
+      } w-full flex items-center justify-between  py-3 lg:py-5 px-4 lg:px-10 bg-primary z-50 duration-300`}>
       <nav className="flex gap-x-8">
         <div className="relative flex lg:hidden flex-col gap-y-1 w-5 h-5 ">
           <span className="w-full h-1 bg-white rounded-md"></span>
@@ -89,10 +89,7 @@ const Header = () => {
           }}
         />
       </nav>
-
-      <nav className="flex gap-x-8">
-        <FaSearch className="text-xl text-white" />
-      </nav>
+      <FaSearch className="text-xl text-white" />
     </header>
   )
 }

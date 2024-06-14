@@ -1,10 +1,7 @@
 import React from "react"
-import Image from "next/image"
 import CardCastProfile from "./cardcastprofile/CardCastProfile"
 
 const CastMovies = ({ castDataMovie }) => {
-  const ImgPath = "https://image.tmdb.org/t/p/original"
-
   return (
     <section className="w-full mt-8">
       <div className="flex flex-col gap-y-5">

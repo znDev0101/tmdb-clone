@@ -22,26 +22,25 @@ const options = {
 }
 
 const LatestTrailers = () => {
-  // const dataLatestMovies = await getMoviesLatestTrending()
-
   const [optionLatestTrailers, setOptionLatestTrailers] = useState("trending")
 
   const [dataLatestMovies, setDataLatestMovies] = useState([])
-  useEffect(() => {
-    const getMoviesTrending = async () => {
-      try {
-        const res = await fetch(
-          `https://api.themoviedb.org/3/trending/all/week`,
-          options
-        )
-        const result = await res.json()
 
-        setDataLatestMovies(result)
-      } catch (error) {
-        console.log(error)
-      }
+  const getMoviesTrending = async () => {
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/trending/all/week`,
+        options
+      )
+      const data = await res.json()
+
+      setDataLatestMovies(data.results)
+    } catch (error) {
+      console.log(error)
     }
+  }
 
+  useEffect(() => {
     getMoviesTrending()
   }, [])
 
@@ -54,7 +53,7 @@ const LatestTrailers = () => {
           className="flex gap-x-3 border border-gray-700 rounded-2xl"></div>
       </div>
       <div className="flex px-4 lg:px-10 gap-x-4 overflow-x-auto mt-7 ">
-        {dataLatestMovies?.results?.map((data, i) => {
+        {dataLatestMovies.map((data, i) => {
           return (
             <CardTrailers
               key={i}
