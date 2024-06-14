@@ -5,10 +5,12 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 
 import { FaSearch } from "react-icons/fa"
+import MenuNavbarMobile from "./menunavbarmobile/MenuNavbarMobile"
 
 const Header = () => {
   const [windowScrollY, setWindowScrollY] = useState(0)
   const [showNavbar, setshowNavbar] = useState(true)
+  const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
     const getScrollY = () => {
@@ -36,8 +38,9 @@ const Header = () => {
     <header
       className={`fixed ${
         showNavbar ? `top-0` : `-top-24`
-      } w-full flex items-center justify-between  py-3 lg:py-5 px-4 lg:px-10 bg-primary z-50 duration-300`}>
+      } w-full flex relative items-center justify-between  py-3 lg:py-5 px-4 lg:px-10 bg-primary z-50 duration-300`}>
       <nav className="flex gap-x-8">
+        {/* IN MOBILE HUMBERGER MENU */}
         <div className="relative flex lg:hidden flex-col gap-y-1 w-5 h-5 ">
           <span className="w-full h-1 bg-white rounded-md"></span>
           <span className="w-full h-1 bg-white rounded-md"></span>
@@ -46,8 +49,10 @@ const Header = () => {
             type="checkbox"
             name="check-box"
             className="absolute top-0 bottom-0 left-0 right-0 opacity-0 z-50"
+            onClick={() => setShowMenu(!showMenu)}
           />
         </div>
+
         <Link href={"/"}>
           <Image
             src={"/logotmdb.svg"}
@@ -90,6 +95,7 @@ const Header = () => {
         />
       </nav>
       <FaSearch className="text-xl text-white" />
+      <MenuNavbarMobile showMenu={showMenu} />
     </header>
   )
 }

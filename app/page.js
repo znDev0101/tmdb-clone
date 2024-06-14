@@ -3,7 +3,6 @@ import HeroSection from "@/components/home/heroSection/HeroSection"
 import LatestTrailers from "@/components/home/latesttrailers/LatestTrailers"
 import Popular from "@/components/home/popular/Popular"
 import { Suspense } from "react"
-import SkeletonCardMovies from "@/components/skeleton/SkeletonCardMovies"
 
 const options = {
   method: "GET",
@@ -23,7 +22,7 @@ async function getMoviesImage() {
 export default async function Home() {
   const movieImageData = await getMoviesImage()
   return (
-    <main className=" min-h-screen pt-16 overflow-hidden">
+    <main className=" min-h-screen overflow-hidden">
       <section className="w-full">
         <HeroSection movieImageData={movieImageData} />
       </section>
