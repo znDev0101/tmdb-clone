@@ -22,7 +22,7 @@ async function getMoviesImage() {
 export default async function Home() {
   const movieImageData = await getMoviesImage()
   return (
-    <main className=" min-h-screen overflow-hidden">
+    <main className=" min-h-screen overflow-hidden mt-16">
       <section className="w-full">
         <HeroSection movieImageData={movieImageData} />
       </section>
