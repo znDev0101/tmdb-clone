@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useState, useEffect, useRef, Suspense } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import CardMovies from "@/components/card/CardMovies"
-import SkeletonCardMovies from "@/components/skeleton/SkeletonCardMovies"
 
 const Popular = () => {
   const [selectPopular, setSelectPopular] = useState("movie")
@@ -21,8 +20,7 @@ const Popular = () => {
     }
 
     const response = await fetch(
-      `https://api.themoviedb.org/3/${selectPopular}/popular
-`,
+      `https://api.themoviedb.org/3/${selectPopular}/popular`,
       options
     )
 

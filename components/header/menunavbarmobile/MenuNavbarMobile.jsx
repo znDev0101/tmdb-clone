@@ -3,20 +3,20 @@
 import React, { useRef, useEffect, forwardRef } from "react"
 
 const MenuNavbarMobile = forwardRef(({ showMenu, setShowMenu }, ref) => {
-  const menuNavbarRef = useRef()
+  const menuNavbarRef = useRef(null)
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!ref.current.contains(event.target)) {
-        if (
-          menuNavbarRef.current &&
-          !menuNavbarRef.current.contains(event.target)
-        ) {
-          setShowMenu(false)
-        }
+  const handleClickOutside = (event) => {
+    if (!ref.current.contains(event.target)) {
+      if (
+        menuNavbarRef.current &&
+        !menuNavbarRef.current.contains(event.target)
+      ) {
+        setShowMenu(false)
       }
     }
+  }
 
+  useEffect(() => {
     document.addEventListener("click", handleClickOutside)
 
     return () => {
