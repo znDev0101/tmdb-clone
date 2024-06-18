@@ -2,29 +2,30 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 import { FaSearch } from "react-icons/fa"
 import MenuNavbarMobile from "./menunavbarmobile/MenuNavbarMobile"
 
 const Header = () => {
   const [windowScrollY, setWindowScrollY] = useState(0)
-  const [showNavbar, setshowNavbar] = useState(true)
+  const [showNavbar, setShowNavbar] = useState(true)
   const [showMenu, setShowMenu] = useState(false)
+  const checkBoxRef = useRef()
 
   useEffect(() => {
     const getScrollY = () => {
       setWindowScrollY(window.scrollY)
       if (window.scrollY > 300) {
-        setshowNavbar(false)
+        setShowNavbar(false)
 
         if (window.scrollY < windowScrollY) {
-          setshowNavbar(true)
+          setShowNavbar(true)
         } else {
-          setshowNavbar(false)
+          setShowNavbar(false)
         }
       } else {
-        setshowNavbar(true)
+        setShowNavbar(true)
       }
     }
 
@@ -49,6 +50,7 @@ const Header = () => {
             type="checkbox"
             name="check-box"
             className="absolute top-0 bottom-0 left-0 right-0 opacity-0 z-50"
+            ref={checkBoxRef}
             onClick={() => setShowMenu(!showMenu)}
           />
         </div>
@@ -85,17 +87,23 @@ const Header = () => {
         </ul>
       </nav>
       <nav className="block lg:hidden">
-        <Image
-          src={"/logotmdb2.svg"}
-          width={55}
-          height={35}
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <Link href={"/"}>
+          <Image
+            src={"/logotmdb2.svg"}
+            width={55}
+            height={35}
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        </Link>
       </nav>
       <FaSearch className="text-xl text-white" />
-      <MenuNavbarMobile showMenu={showMenu} />
+      <MenuNavbarMobile
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+        ref={checkBoxRef}
+      />
     </header>
   )
 }
