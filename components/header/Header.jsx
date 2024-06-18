@@ -57,6 +57,7 @@ const Header = () => {
 
         <Link href={"/"}>
           <Image
+            alt="logo-tmdb"
             src={"/logotmdb.svg"}
             width={150}
             height={20}
@@ -89,6 +90,7 @@ const Header = () => {
       <nav className="block lg:hidden">
         <Link href={"/"}>
           <Image
+            alt="logo-tmdb-in-mobile"
             src={"/logotmdb2.svg"}
             width={55}
             height={35}
