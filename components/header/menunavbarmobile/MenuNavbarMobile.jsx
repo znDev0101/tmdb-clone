@@ -22,7 +22,7 @@ const MenuNavbarMobile = forwardRef(({ showMenu, setShowMenu }, ref) => {
     return () => {
       document.removeEventListener("click", handleClickOutside)
     }
-  }, [menuNavbarRef])
+  }, [])
 
   return (
     <nav
