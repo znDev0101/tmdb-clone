@@ -11,7 +11,7 @@ const Header = () => {
   const [windowScrollY, setWindowScrollY] = useState(0)
   const [showNavbar, setShowNavbar] = useState(true)
   const [showMenu, setShowMenu] = useState(false)
-  const checkBoxRef = useRef()
+  const checkBoxRef = useRef(null)
 
   useEffect(() => {
     const getScrollY = () => {
