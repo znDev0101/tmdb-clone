@@ -39,4 +39,6 @@ const MenuNavbarMobile = forwardRef(({ showMenu, setShowMenu }, ref) => {
   )
 })
 
+MenuNavbarMobile.displayName = "MenuNavbarMobile"
+
 export default MenuNavbarMobile
