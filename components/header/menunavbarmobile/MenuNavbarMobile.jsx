@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useRef, useEffect, forwardRef, useCallback } from "react"
 
 const MenuNavbarMobile = forwardRef(({ showMenu, setShowMenu }, ref) => {
