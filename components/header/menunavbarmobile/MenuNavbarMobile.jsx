@@ -1,27 +1,26 @@
 "use client"
 
-import React, { useRef, useEffect, forwardRef } from "react"
+import React, { useRef, useEffect, forwardRef, useCallback } from "react"
 
 const MenuNavbarMobile = forwardRef(({ showMenu, setShowMenu }, ref) => {
   const menuNavbarRef = useRef(null)
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!ref.current.contains(event.target)) {
-        if (
-          menuNavbarRef.current &&
-          !menuNavbarRef.current.contains(event.target)
-        ) {
-          setShowMenu(false)
-        }
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setShowMenu(false)
       }
-    }
+    },
+    [ref, setShowMenu]
+  )
+
+  useEffect(() => {
     document.addEventListener("click", handleClickOutside)
 
     return () => {
       document.removeEventListener("click", handleClickOutside)
     }
-  }, [])
+  }, [handleClickOutside])
 
   return (
     <nav
