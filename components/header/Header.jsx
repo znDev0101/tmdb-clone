@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState, useRef } from "react"
+import tmdblogo from "../../public/tmdb-log.svg"
 
 import { FaSearch } from "react-icons/fa"
 import MenuNavbarMobile from "./menunavbarmobile/MenuNavbarMobile"
@@ -58,7 +59,7 @@ const Header = () => {
         <Link href={"/"}>
           <Image
             alt="logo-tmdb"
-            src={"/logotmdb.svg"}
+            src={tmdblogo}
             width={150}
             height={20}
             className=" object-contain hidden lg:block"

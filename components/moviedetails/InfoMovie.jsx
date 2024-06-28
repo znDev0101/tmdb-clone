@@ -12,9 +12,9 @@ const InfoMovie = async ({ detailDataMovie }) => {
   return (
     <section className="w-full h-screen relative">
       <div className="absolute top-0 bottom-0 left-0 right-0 pt-28 lg:pt-0 lg:transform lg:translate-y-7 px-5 lg:px-10 flex flex-col gap-y-10 lg:gap-y-0 lg:grid lg:grid-cols-[max-content_1fr] gap-x-10 items-center z-40">
-        <div className="relative w-[90%] lg:w-[300px] h-96 lg:h-[80%] rounded-xl overflow-hidden">
+        <div className="relative w-[90%] lg:w-[300px] h-[80vh] lg:h-[80%] rounded-xl overflow-hidden">
           <Image
-            alt="poster_path-img"
+            alt="poster img"
             src={`https://image.tmdb.org/t/p/w500/${detailDataMovie?.poster_path}`}
             fill
             sizes="(min-width: 808px) 50vw, 100vw"
@@ -78,6 +78,7 @@ const InfoMovie = async ({ detailDataMovie }) => {
 
       <div className="absolute top-0 bottom-0 left-0 right-0 bg-blue-600 lg:bg-gradient-to-r from-blue-600 from-80% opacity-85 z-30"></div>
       <Image
+        alt="backdroppath image"
         src={`https://image.tmdb.org/t/p/original/${detailDataMovie?.backdrop_path}`}
         fill
         objectFit="cover"
