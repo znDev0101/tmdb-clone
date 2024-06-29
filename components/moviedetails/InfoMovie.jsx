@@ -10,9 +10,9 @@ const InfoMovie = async ({ detailDataMovie }) => {
   // IF MOVIE RELEASE_DATE AND IF TV FIRST_AIR_DATE
 
   return (
-    <section className="w-full h-screen relative">
+    <>
       <div className="absolute top-0 bottom-0 left-0 right-0 pt-28 lg:pt-0 lg:transform lg:translate-y-7 px-5 lg:px-10 flex flex-col gap-y-10 lg:gap-y-0 lg:grid lg:grid-cols-[max-content_1fr] gap-x-10 items-center z-40">
-        <div className="relative w-[90%] lg:w-[300px] h-[80vh] lg:h-[80%] rounded-xl overflow-hidden">
+        <div className="relative w-[90%] lg:w-[300px] h-[50%] lg:h-[80%] flex-shrink-0 rounded-xl overflow-hidden">
           <Image
             alt="poster img"
             src={`https://image.tmdb.org/t/p/w500/${detailDataMovie?.poster_path}`}
@@ -84,7 +84,7 @@ const InfoMovie = async ({ detailDataMovie }) => {
         objectFit="cover"
         objectPosition="top"
       />
-    </section>
+    </>
   )
 }
 

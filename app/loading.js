@@ -1,5 +1,15 @@
-import SkeletonCardMovies from "@/components/skeleton/SkeletonCardMovies"
+import ImageHeroSkeleton from "@/components/skeleton/imageheroskeleton/ImageHeroSkeleton"
+import SkeletonCardMovies from "@/components/skeleton/skeletoncardmovies/SkeletonCardMovies"
 
 export default function Loading() {
-  return <h1 className="text-5xl text-center font-bold">Loading....</h1>
+  return (
+    <main>
+      <section className="w-full">
+        <ImageHeroSkeleton />
+      </section>
+      <section>
+        <SkeletonCardMovies />
+      </section>
+    </main>
+  )
 }

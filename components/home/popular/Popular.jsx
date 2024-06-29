@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, Suspense } from "react"
 import CardMovies from "@/components/card/CardMovies"
 
 const Popular = () => {
@@ -31,7 +31,7 @@ const Popular = () => {
 
   useEffect(() => {
     getAllDataPopular()
-    cardContainerRef.current.scrollTo({ left: 0 })
+    // cardContainerRef.current.scrollTo({ left: 0 })
   }, [selectPopular])
 
   return (
@@ -60,7 +60,8 @@ const Popular = () => {
         </div>
       </div>
       {/* CARD CONTAINER */}
-      <div
+
+      {/* <div
         className="flex  overflow-x-auto gap-x-3 px-5 lg:px-10"
         ref={cardContainerRef}>
         {dataAllGenrePopular.map((data, i) => {
@@ -68,7 +69,7 @@ const Popular = () => {
             <CardMovies data={data} key={i} selectPopular={selectPopular} />
           )
         })}
-      </div>
+      </div> */}
     </div>
   )
 }

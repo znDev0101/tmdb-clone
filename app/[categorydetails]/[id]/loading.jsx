@@ -1,11 +1,15 @@
-import React from "react"
+import SkeletonCastMovie from "@/components/skeleton/skeletoncastmovie/SkeletonCastMovie"
+import SkeletonInfoMovie from "@/components/skeleton/skeletoninfomovie/SkeletonInfoMovie"
 
-const LoadingInfoMovies = () => {
+export default function InfoMoviesLoading() {
   return (
-    <div>
-      <h5>Loading.....</h5>
-    </div>
+    <main>
+      <section>
+        <SkeletonInfoMovie />
+      </section>
+      <section className="w-full mt-8">
+        <SkeletonCastMovie />
+      </section>
+    </main>
   )
 }
-
-export default LoadingInfoMovies

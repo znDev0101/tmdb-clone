@@ -4,7 +4,7 @@ import tmdbfooter from "../../public/tmdb-footer.svg"
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#032541] py-14">
+    <footer className="w-full bg-[#032541] py-8">
       <div className=" w-32 mx-auto ">
         <Image
           alt="logotmdb footer"

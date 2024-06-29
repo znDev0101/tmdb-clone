@@ -1,8 +1,6 @@
 "use client"
-
-import Loading from "@/app/loading"
 import CardMovies from "@/components/card/CardMovies"
-import SkeletonCardMovies from "@/components/skeleton/SkeletonCardMovies"
+import SkeletonCardMovies from "@/components/skeleton/skeletoncardmovies/SkeletonCardMovies"
 import React, { useState, useEffect, useRef, Suspense } from "react"
 
 const Trending = () => {
@@ -11,18 +9,17 @@ const Trending = () => {
   const cardContainerRef = useRef(null)
 
   const getMoviesTrending = async () => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDIzNDU1ODM0NmRmYTM5YjU3NWExZTdhYzExMTk5NSIsInN1YiI6IjYyYmFhZTAzOGI5NTllMDA2MmIzNDg2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aUpIi_EZn1itc6ta70CZt8syN-qEgv8Y8TIW65mCXvs",
-      },
-    }
-
     const response = await fetch(
       `https://api.themoviedb.org/3/trending/all/${selectTrending}?language=en-US`,
-      options
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDIzNDU1ODM0NmRmYTM5YjU3NWExZTdhYzExMTk5NSIsInN1YiI6IjYyYmFhZTAzOGI5NTllMDA2MmIzNDg2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aUpIi_EZn1itc6ta70CZt8syN-qEgv8Y8TIW65mCXvs",
+        },
+        cache: "no-cache",
+      }
     )
 
     const data = await response.json()
@@ -32,7 +29,7 @@ const Trending = () => {
 
   useEffect(() => {
     getMoviesTrending()
-    cardContainerRef.current.scrollTo({ left: 0 })
+    // cardContainerRef.current.scrollTo({ left: 0 })
   }, [selectTrending])
 
   return (
@@ -61,11 +58,11 @@ const Trending = () => {
         </div>
       </div>
       {/* CARD CONTAINER */}
-      <div
-        className="flex  overflow-x-auto gap-x-3 px-5 lg:px-10"
-        ref={cardContainerRef}>
+      <div className="flex  overflow-x-auto gap-x-3 px-5 lg:px-10">
         {dataMoviesTrending.map((data, i) => {
-          return <CardMovies data={data} key={i} />
+          return (
+            <CardMovies data={data} key={i} selectTrending={selectTrending} />
+          )
         })}
       </div>
     </div>

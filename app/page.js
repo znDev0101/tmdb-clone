@@ -3,7 +3,7 @@ import HeroSection from "@/components/home/heroSection/HeroSection"
 import LatestTrailers from "@/components/home/latesttrailers/LatestTrailers"
 import Popular from "@/components/home/popular/Popular"
 import { Suspense } from "react"
-import Loading from "./loading"
+import SkeletonCardMovies from "@/components/skeleton/skeletoncardmovies/SkeletonCardMovies"
 
 async function getMoviesImage() {
   const res = await fetch(`https://api.themoviedb.org/3/movie/popular`, {
@@ -13,7 +13,6 @@ async function getMoviesImage() {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDIzNDU1ODM0NmRmYTM5YjU3NWExZTdhYzExMTk5NSIsInN1YiI6IjYyYmFhZTAzOGI5NTllMDA2MmIzNDg2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aUpIi_EZn1itc6ta70CZt8syN-qEgv8Y8TIW65mCXvs",
     },
-    cache: "no-store",
   })
   return res.json()
 }
@@ -23,12 +22,12 @@ export default async function Home() {
   return (
     <main className=" min-h-screen overflow-hidden mt-16">
       <section className="w-full">
-        <Suspense fallback={<Loading />}>
-          <HeroSection movieImageData={movieImageData} />
-        </Suspense>
+        <HeroSection movieImageData={movieImageData} />
       </section>
       <section className="w-full py-5 lg:py-10">
-        <Trending />
+        <Suspense fallback={<SkeletonCardMovies />}>
+          <Trending />
+        </Suspense>
       </section>
       <LatestTrailers />
       <section className="w-full py-5 lg:py-10">
